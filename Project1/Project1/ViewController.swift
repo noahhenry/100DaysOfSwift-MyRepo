@@ -51,11 +51,5 @@ class ViewController: UITableViewController {
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	}
-	
-//	func getPictureIndex(pictures: [String], pictureName: String) -> Int {
-//		for picture in pictures {
-//			find
-//		}
-//	}
 }
 
