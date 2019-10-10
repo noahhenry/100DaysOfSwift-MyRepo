@@ -28,6 +28,7 @@ class ViewController: UITableViewController {
 			}
 		}
 		
+		pictures.sort()
 		print(pictures)
 	}
 
@@ -44,8 +45,17 @@ class ViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
 			vc.selectedImage = pictures[indexPath.row]
+			let imageName = vc.selectedImage! // had to implicily force unwrap the 'indexPath.row' item to get the string value.
+			vc.selectedImageIndex = pictures.firstIndex(of: imageName)! + 1
+			vc.totalPictures = pictures.count
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	}
+	
+//	func getPictureIndex(pictures: [String], pictureName: String) -> Int {
+//		for picture in pictures {
+//			find
+//		}
+//	}
 }
 
