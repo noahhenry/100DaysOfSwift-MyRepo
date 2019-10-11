@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1H-gY-TvK">
+                                <rect key="frame" x="107" y="100" width="200" height="100"/>
+                                <state key="normal" image="us"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwm-Fz-lgF">
                                 <rect key="frame" x="107" y="230" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mk2-nY-PP8">
                                 <rect key="frame" x="107" y="360" width="200" height="100"/>
-                                <state key="normal" image="us"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1H-gY-TvK">
-                                <rect key="frame" x="107" y="100" width="200" height="100"/>
                                 <state key="normal" image="us"/>
                             </button>
                         </subviews>
@@ -44,9 +44,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="VOv-n9-Xi8"/>
                     <connections>
-                        <outlet property="button1" destination="qwm-Fz-lgF" id="FO4-Iz-fwv"/>
-                        <outlet property="button2" destination="qwm-Fz-lgF" id="eaL-GM-Fjv"/>
-                        <outlet property="button3" destination="Mk2-nY-PP8" id="CjV-e5-GMl"/>
+                        <outlet property="button1" destination="k1H-gY-TvK" id="vDH-Bl-K8X"/>
+                        <outlet property="button2" destination="qwm-Fz-lgF" id="yRp-Tz-Ueq"/>
+                        <outlet property="button3" destination="Mk2-nY-PP8" id="h8f-Jm-zsB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
