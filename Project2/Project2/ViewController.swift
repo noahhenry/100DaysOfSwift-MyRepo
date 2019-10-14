@@ -22,6 +22,8 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(showScore))
+		
 //		countries.append("estonia")
 //		countries.append("france")
 //		countries.append("germany")
@@ -100,6 +102,12 @@ class ViewController: UIViewController {
 		ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
 		
 		present(ac, animated: true)
+	}
+	
+	@objc func showScore() {
+		let vc = UIAlertController(title: "Score", message: "Your score is \(score)", preferredStyle: .alert)
+		vc.addAction(UIAlertAction(title: "Dismiss", style: .default))
+		present(vc, animated: true)
 	}
 }
 
