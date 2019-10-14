@@ -57,7 +57,7 @@ class ViewController: UITableViewController {
 	@objc func shareApp() {
 		print("Sharing App")
 		
-		let items: [Any] = ["This app is my favorite", URL(string: "https://www.apple.com")!]
+		let items: [Any] = ["This app is my favorite.", URL(string: "https://www.apple.com")!]
 		let vc = UIActivityViewController(activityItems: items, applicationActivities: [])
 		vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
 		present(vc, animated: true)
