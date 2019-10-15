@@ -24,6 +24,7 @@
 		3981238D2355F80100CDE5E6 /* country-nigeria.png in Resources */ = {isa = PBXBuildFile; fileRef = 398123812355F80100CDE5E6 /* country-nigeria.png */; };
 		3981238E2355F80100CDE5E6 /* country-russia.png in Resources */ = {isa = PBXBuildFile; fileRef = 398123822355F80100CDE5E6 /* country-russia.png */; };
 		3981238F2355F80100CDE5E6 /* country-france.png in Resources */ = {isa = PBXBuildFile; fileRef = 398123832355F80100CDE5E6 /* country-france.png */; };
+		398123932356244800CDE5E6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398123922356244800CDE5E6 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		398123812355F80100CDE5E6 /* country-nigeria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "country-nigeria.png"; sourceTree = "<group>"; };
 		398123822355F80100CDE5E6 /* country-russia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "country-russia.png"; sourceTree = "<group>"; };
 		398123832355F80100CDE5E6 /* country-france.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "country-france.png"; sourceTree = "<group>"; };
+		398123922356244800CDE5E6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				398122C02354CE3C00CDE5E6 /* AppDelegate.swift */,
 				398122C22354CE3C00CDE5E6 /* ViewController.swift */,
+				398123922356244800CDE5E6 /* DetailViewController.swift */,
 				398122C42354CE3C00CDE5E6 /* Main.storyboard */,
 				398122C72354CE3E00CDE5E6 /* Assets.xcassets */,
 				398122C92354CE3E00CDE5E6 /* LaunchScreen.storyboard */,
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				398123932356244800CDE5E6 /* DetailViewController.swift in Sources */,
 				398122C32354CE3C00CDE5E6 /* ViewController.swift in Sources */,
 				398122C12354CE3C00CDE5E6 /* AppDelegate.swift in Sources */,
 			);
