@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 		
 		// Do any additional setup after loading the view.
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
 		
 		// Provide Navigation with a title.
 		title = "\(imageName!)'s flag"
@@ -27,6 +28,30 @@ class DetailViewController: UIViewController {
 			imageView.image = UIImage(named: imageToLoad)
 		}
     }
+	
+//	@objc func shareTapped() {
+//		guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+//			print("No image found.")
+//			return
+//		}
+//
+//		// print("The selected image: \(selectedImage!)")
+//
+//		let vc = UIActivityViewController(activityItems: [image, selectedImage!], applicationActivities: [])
+//		vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+//		present(vc, animated: true)
+//	}
+	
+	@objc func shareTapped() {
+		guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+			print("No image found.")
+			return
+		}
+		
+		let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+		vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+		present(vc, animated: true)
+	}
 
     /*
     // MARK: - Navigation
