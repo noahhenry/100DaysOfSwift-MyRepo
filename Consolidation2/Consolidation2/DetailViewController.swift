@@ -29,19 +29,6 @@ class DetailViewController: UIViewController {
 		}
     }
 	
-//	@objc func shareTapped() {
-//		guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
-//			print("No image found.")
-//			return
-//		}
-//
-//		// print("The selected image: \(selectedImage!)")
-//
-//		let vc = UIActivityViewController(activityItems: [image, selectedImage!], applicationActivities: [])
-//		vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-//		present(vc, animated: true)
-//	}
-	
 	@objc func shareTapped() {
 		guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
 			print("No image found.")
