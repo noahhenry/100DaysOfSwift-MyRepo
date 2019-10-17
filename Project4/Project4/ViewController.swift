@@ -28,7 +28,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 		let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
 		
-		progressView = UIProgressView(progressViewStyle: .default)
+		progressView = UIProgressView(progressViewStyle: .)
 		progressView.sizeToFit()
 		let progressButton = UIBarButtonItem(customView: progressView)
 		
