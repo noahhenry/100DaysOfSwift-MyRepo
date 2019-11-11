@@ -12,6 +12,7 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
 	var webView: WKWebView!
 	var progressView: UIProgressView!
+	var websites = ["apple.com", "hackingwithswift.com"]
 	
 	override func loadView() {
 		webView = WKWebView()
@@ -37,15 +38,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		
 		webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
 		
-		let url = URL(string: "https://www.hackingwithswift.com")!
+		let url = URL(string: "https://" + websites[0])! // or string interpolation as -> let url = URL(string: "https://\(websites[0])")!
 		webView.load(URLRequest(url: url))
 		webView.allowsBackForwardNavigationGestures = true
 	}
 	
 	@objc func openTapped() {
 		let ac = UIAlertController(title: "Open Page", message: nil, preferredStyle: .actionSheet)
-		ac.addAction(UIAlertAction(title: "apple.com", style: .default, handler: openPage))
-		ac.addAction(UIAlertAction(title: "hackingwithswift.com", style: .default, handler: openPage))
+		
+		for website in websites {
+			ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
+		}
+		
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 		ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // important for iPad use.
 		
@@ -53,7 +57,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 	}
 
 	func openPage(action: UIAlertAction) {
-		// let url = URL(string: "https://" + action.title!)! // doulbe force-unwrap -> 1. because we know our 'alert action' will have a title and 2. because we know the finished string will be a valid url. We could use a guard let just to be safe.
+		// let url = URL(string: "https://" + action.title!)! // doulbe force-unwrap -> 1. because we know our 'alert action' will have a title and 2. because we know the finished string will be a valid url. We could use a 'guard let' just to be safe.
 		// guard let way
 		guard let actionTitle = action.title else { return }
 		guard let url = URL(string: "https://" + actionTitle) else { return }
@@ -69,5 +73,20 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		if keyPath == "estimatedProgress" {
 			progressView.progress = Float(webView.estimatedProgress)
 		}
+	}
+	
+	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		let url = navigationAction.request.url
+		
+		if let host = url?.host {
+			for website in websites {
+				if host.contains(website) {
+					decisionHandler(.allow)
+					return
+				}
+			}
+		}
+		
+		decisionHandler(.cancel)
 	}
 }
