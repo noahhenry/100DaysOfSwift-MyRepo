@@ -12,7 +12,7 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
 	var webView: WKWebView!
 	var progressView: UIProgressView!
-	var websites = ["apple.com", "hackingwithswift.com"]
+	var websites = ["apple.com", "hackingwithswift.com", "macrumors.com"]
 	
 	override func loadView() {
 		webView = WKWebView()
@@ -25,6 +25,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		// Do any additional setup after loading the view.
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
+		navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(goBack))
 		
 		let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 		let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
@@ -38,7 +39,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		
 		webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
 		
-		let url = URL(string: "https://" + websites[0])! // or string interpolation as -> let url = URL(string: "https://\(websites[0])")!
+		let landingWebsite = websites[0]
+		let url = URL(string: "https://" + landingWebsite)! // or string interpolation as -> let url = URL(string: "https://\(websites[0])")!
 		webView.load(URLRequest(url: url))
 		webView.allowsBackForwardNavigationGestures = true
 	}
@@ -49,7 +51,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		for website in websites {
 			ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
 		}
-		
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 		ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem // important for iPad use.
 		
@@ -69,6 +70,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		title = webView.title
 	}
 	
+	@objc func goBack() {
+		webView.goBack()
+	}
+	
 	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
 		if keyPath == "estimatedProgress" {
 			progressView.progress = Float(webView.estimatedProgress)
@@ -79,6 +84,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		let url = navigationAction.request.url
 		
 		if let host = url?.host {
+			print("The Host: \(host)")
 			for website in websites {
 				if host.contains(website) {
 					decisionHandler(.allow)
@@ -88,5 +94,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		}
 		
 		decisionHandler(.cancel)
+		
+		// For some reason this runs when accessing apple.com or macrumors.com even though both are in the websites list.
+		let ac = UIAlertController(title: "Invalid URL", message: "The URL you selected does not exist in our list of safe URLs.", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "Dismiss", style: .default))
+		present(ac, animated: true)
 	}
 }
