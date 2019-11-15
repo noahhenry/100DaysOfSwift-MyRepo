@@ -12,7 +12,7 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
 	var webView: WKWebView!
 	var progressView: UIProgressView!
-	var websites = ["apple.com", "hackingwithswift.com", "macrumors.com"]
+	var websites = ["apple.com", "hackingwithswift.com", "angular.io"]
 	
 	override func loadView() {
 		webView = WKWebView()
@@ -93,11 +93,16 @@ class ViewController: UIViewController, WKNavigationDelegate {
 			}
 		}
 		
-		decisionHandler(.cancel)
+		// to stop "Unauthorized URL" alert from showing on links that are not "hackingwithswift.com"
+		// there seems to be some from of rerouting happening on the other sites.
+		let urlString = url?.absoluteString ?? "Unknown"
+		if urlString != "about:blank" {
+			// to test, select angular.io from the list and scroll to the footer and select the "Stack Overflow" link
+			let ac = UIAlertController(title: "Unauthorized URL", message: "The URL you selected does not exist in our list of safe URLs.", preferredStyle: .alert)
+			ac.addAction(UIAlertAction(title: "Dismiss", style: .default))
+			present(ac, animated: true)
+		}
 		
-		// For some reason this runs when accessing apple.com or macrumors.com even though both are in the websites list.
-		let ac = UIAlertController(title: "Invalid URL", message: "The URL you selected does not exist in our list of safe URLs.", preferredStyle: .alert)
-		ac.addAction(UIAlertAction(title: "Dismiss", style: .default))
-		present(ac, animated: true)
+		decisionHandler(.cancel)
 	}
 }
