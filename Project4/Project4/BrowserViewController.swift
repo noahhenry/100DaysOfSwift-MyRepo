@@ -9,10 +9,14 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate {
+class BrowserViewController: UIViewController, WKNavigationDelegate {
+	@IBOutlet var BrowserView: UIView!
+	
 	var webView: WKWebView!
 	var progressView: UIProgressView!
-	var websites = ["apple.com", "hackingwithswift.com", "angular.io"]
+	// change... to take what is passed from ListViewController
+	var websites = [String]()
+	var selectedWebsite: Int!
 	
 	override func loadView() {
 		webView = WKWebView()
@@ -40,7 +44,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		
 		webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
 		
-		let landingWebsite = websites[0]
+		let landingWebsite = websites[selectedWebsite]
 		let url = URL(string: "https://" + landingWebsite)! // or string interpolation as -> let url = URL(string: "https://\(websites[0])")!
 		webView.load(URLRequest(url: url))
 		webView.allowsBackForwardNavigationGestures = true
