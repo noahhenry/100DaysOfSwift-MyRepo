@@ -14,7 +14,6 @@ class BrowserViewController: UIViewController, WKNavigationDelegate {
 	
 	var webView: WKWebView!
 	var progressView: UIProgressView!
-	// change... to take what is passed from ListViewController
 	var websites = [String]()
 	var selectedWebsite: Int!
 	
