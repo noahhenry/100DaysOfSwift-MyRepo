@@ -114,6 +114,12 @@ class ViewController: UITableViewController {
 	}
 	
 	func isReal(word: String) -> Bool {
+		if word.count < 3 {
+			return false
+		} else if word == title!.lowercased() {
+			return false
+		}
+		
 		let checker = UITextChecker()
 		let range = NSRange(location: 0, length: word.utf16.count) // convert swfit string to a formatt acceptable by objective-c
 		let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
