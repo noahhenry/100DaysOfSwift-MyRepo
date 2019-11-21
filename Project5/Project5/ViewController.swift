@@ -68,6 +68,14 @@ class ViewController: UITableViewController {
 		if isPossible(word: lowerAnswer) {
 			if isOriginal(word: lowerAnswer) {
 				if isReal(word: lowerAnswer) {
+					if lowerAnswer.count < 3 {
+						showErrorMessage(title: "Too Short", message: "Your word must be at least 3 characters.")
+						return
+					} else if lowerAnswer == title!.lowercased() {
+						showErrorMessage(title: "Samesies", message: "Your word cannot be the same as starter word.")
+						return
+					}
+					
 					usedWords.insert(answer, at: 0)
 					
 					// used for animation
@@ -105,11 +113,11 @@ class ViewController: UITableViewController {
 	}
 	
 	func isReal(word: String) -> Bool {
-		if word.count < 3 {
-			return false
-		} else if word == title!.lowercased() {
-			return false
-		}
+//		if word.count < 3 {
+//			return false
+//		} else if word == title!.lowercased() {
+//			return false
+//		}
 		
 		let checker = UITextChecker()
 		let range = NSRange(location: 0, length: word.utf16.count) // convert swfit string to a formatt acceptable by objective-c
