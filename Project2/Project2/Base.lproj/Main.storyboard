@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jCi-ey-RIF">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jCi-ey-RIF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +18,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1H-gY-TvK">
                                 <rect key="frame" x="107" y="100" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="k1H-gY-TvK" secondAttribute="height" multiplier="2:1" id="fSo-OV-Qkn"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WZt-hU-l3v"/>
@@ -27,6 +28,9 @@
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwm-Fz-lgF">
                                 <rect key="frame" x="107" y="230" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qwm-Fz-lgF" secondAttribute="height" multiplier="2:1" id="IM3-7o-WCl"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6h5-eV-ZzL"/>
@@ -34,6 +38,9 @@
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mk2-nY-PP8">
                                 <rect key="frame" x="107" y="360" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mk2-nY-PP8" secondAttribute="height" multiplier="2:1" id="g5L-Un-t9S"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jah-bu-UQW"/>
@@ -43,10 +50,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="k1H-gY-TvK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1sc-a6-FHy"/>
+                            <constraint firstItem="qwm-Fz-lgF" firstAttribute="height" secondItem="k1H-gY-TvK" secondAttribute="height" id="Bwi-Bx-vkm"/>
                             <constraint firstItem="Mk2-nY-PP8" firstAttribute="centerX" secondItem="qwm-Fz-lgF" secondAttribute="centerX" id="F11-Qs-wVM"/>
                             <constraint firstItem="Mk2-nY-PP8" firstAttribute="top" secondItem="qwm-Fz-lgF" secondAttribute="bottom" constant="30" id="GPq-df-Y9g"/>
                             <constraint firstItem="qwm-Fz-lgF" firstAttribute="centerX" secondItem="k1H-gY-TvK" secondAttribute="centerX" id="H6U-lc-JE2"/>
                             <constraint firstItem="k1H-gY-TvK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="V9m-x5-cDy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Mk2-nY-PP8" secondAttribute="bottom" constant="20" id="arv-Ss-zXk"/>
+                            <constraint firstItem="Mk2-nY-PP8" firstAttribute="height" secondItem="qwm-Fz-lgF" secondAttribute="height" id="oyx-2e-kJT"/>
                             <constraint firstItem="qwm-Fz-lgF" firstAttribute="top" secondItem="k1H-gY-TvK" secondAttribute="bottom" constant="30" id="xtx-wa-tzk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
