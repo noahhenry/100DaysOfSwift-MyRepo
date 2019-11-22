@@ -53,7 +53,7 @@ class ViewController: UIViewController {
 		let viewsDictionary = ["label1": label1, "label2": label2, "label3": label3, "label4": label4, "label5": label5]
 		
 		for label in viewsDictionary.keys {
-			// VisualFormatLanguage (VFL) "H:|[item]|"
+			// Visual Format Language (VFL) "H:|[item]|"
 			view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[\(label)]|", options: [], metrics: nil, views: viewsDictionary))
 		}
 		
