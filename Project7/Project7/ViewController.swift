@@ -15,6 +15,11 @@ class ViewController: UITableViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		
+		// Credits Alert
+		let creditsButton: UIBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
+		self.navigationItem.rightBarButtonItem = creditsButton
+		
+		// Seting Up The URL
 		// let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 		let urlString: String
 
@@ -36,6 +41,13 @@ class ViewController: UITableViewController {
 		}
 		
 		showError()
+	}
+	
+	@objc func showCredits() {
+		let ac = UIAlertController(title: "Data Source", message: "The data used in this app is sourced from the We The People API of the Whitehouse.", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+		
+		present(ac, animated: true)
 	}
 	
 	func showError() {
