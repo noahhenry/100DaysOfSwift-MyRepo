@@ -45,7 +45,9 @@
                             <outlet property="delegate" destination="VAx-j5-aWV" id="sK5-Fq-AFr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Y2h-JH-t1C"/>
+                    <navigationItem key="navigationItem" id="Y2h-JH-t1C">
+                        <nil key="title"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sb2-7s-WnG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -76,6 +78,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="y7A-EV-PmV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jqb-NU-DUT">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
